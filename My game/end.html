@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title> Platform Game </title>
+		<script src="https://simplycodingcourses.com/files/simply.js"></script>
+		<script>
+
+      function start(){
+				sjs.open("target",500,500);
+
+        var finished_txt = new sjs.Text("clicks in 5 seconds", 28, "red");
+				finished_txt.centerH().offset(5,0);
+
+        var score_txt = new sjs.Text("You got ", 28, "red");
+				score_txt.setText("You got "+localStorage.getItem("score"));
+
+        score_txt.moveTo(0,0);
+
+
+        var restart_Btn = new sjs.Button("Try agian?", function(){
+					window.location = "index.html";
+
+        });
+
+        restart_Btn.bottom().offset(200);
+
+
+		} //end start
+
+
+		</script>
+	</head>
+	<body onload="start()">
+		<h1>  </h1>
+
+		<div id="target" style="margin:auto;background:black;"></div>
+	</body>
+</html>

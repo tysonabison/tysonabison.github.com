@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Menu </title>
+		<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+		<script>
+			function start(){
+				sjs.open();
+
+				var menu_txt = new sjs.Text("Click as fast as you can, see how fast you can click!!", 28, "red");
+				menu_txt.centerH();
+
+				var start_Btn = new sjs.Button("Start", function(){
+					window.location = "custom.html";
+
+				});
+
+				start_Btn.center();
+
+			}//end start
+		</script>
+	</head>
+	<body onload="start()">
+		<h1>  </h1>
+
+		<div id="target" style="margin:auto;background:black;"></div>
+	</body>
+</html>

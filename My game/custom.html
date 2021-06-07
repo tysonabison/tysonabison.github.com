@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Menu </title>
+		<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+		<script>
+
+		
+			function start(){
+				sjs.open("target",500,500);
+
+				var first_click = false;
+				var	stop = false;
+
+				var score = 0;
+				var score_txt = new sjs.Text("Score: 0", 44, "green");
+				score_txt.moveTo(175, 0)
+				score_txt.fixed = true;
+
+				var click_Btn = new sjs.Button("Click Me", function(){
+
+					score = score + 1;
+					score_txt.setText("Score: " + score);
+					localStorage.setItem("score", score);
+
+					if(first_click == false){
+						first_click = true;
+
+						setTimeout(function(){
+
+							window.location = "end.html";
+
+						},5000);
+
+					}
+
+
+				});
+
+				click_Btn.center();
+
+
+
+
+			}//end start
+		</script>
+	</head>
+	<body onload="start()">
+		<h1>  </h1>
+
+		<div id="target" style="margin:auto;background:black;"></div>
+	</body>
+</html>
