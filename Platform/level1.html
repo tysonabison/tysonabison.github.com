@@ -16,7 +16,7 @@
 				var toggle = true;
 				var musicOn = false;
 
-				document.addEventListener("keydown", function(){
+				document.addEventListener("keydown", event => {
 					if (event.key == "m") {
 						if(toggle == true){
 							if(musicOn == false){
