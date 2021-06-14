@@ -9,8 +9,9 @@
 				var playM = new Audio('Music/ova.mp3');
 				var toggle = true;
 				var musicOn = false;
-
-				document.addEventListener("keydown", event => {
+	
+				var canJump = true;
+				window.addEventListener("keydown", event => {
 					if (event.key == "m") {
 						if(toggle == true){
 							if(musicOn == false){
@@ -71,6 +72,18 @@
 						}
 					}
 				});//end keyDown functions
+				window.addEventListener("keyup", event => {
+					if(event.key == "ArrowRight"){
+						player.setImage("Images/r_idle.png");
+						r_track = 0;
+
+					} else if (event.keyCode == "ArrowLeft"){
+						player.setImage("Images/l_idle.png");
+						l_track = 0;
+
+					} //end if statement
+
+				}); //end EventListener function
 
 			
 				var background = new sjs.Image("Images/background.png");
