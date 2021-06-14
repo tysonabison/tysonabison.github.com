@@ -46,24 +46,6 @@
 				var r_faceing = true;
 				var r_track = 0;
 				var l_track = 0;
-
-				//jumping code
-
-				var canJump = true;
-
-				window.addEventListener("keyup", function(e){
-					if(e.keyCode == RIGHT_KEY){
-						player.setImage("Images/r_idle.png");
-						r_track = 0;
-
-					} else if (e.keyCode == LEFT_KEY){
-						player.setImage("Images/l_idle.png");
-						l_track = 0;
-
-					} //end if statement
-
-				}); //end EventListener function
-
 				//onHit Code Below!!!
 
 				sjs.onHit("player","platform", function(x,y){
