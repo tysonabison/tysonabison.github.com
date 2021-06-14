@@ -3,17 +3,13 @@
 			function start(){
 				sjs.open("target",800,500);
 
-				//background music
-
-
 				var playM = new Audio('Music/ova.mp3');
 				var toggle = true;
 				var musicOn = false;
 	
 				var canJump = true;
 				window.addEventListener("keydown", event => {
-					if (event.key == "m") {
-						if(toggle == true){
+					if (event.key == "m"&&toggle == true) {
 							if(musicOn == false){
 								playM.play();
 								musicOn = true;
@@ -30,7 +26,6 @@
 
 							},2000); 
 
-						}
 					}if (event.key == "ArrowRight") {
 						r_faceing = true;
 						r_track = r_track + 1;
@@ -77,13 +72,13 @@
 						player.setImage("Images/r_idle.png");
 						r_track = 0;
 
-					} else if (event.keyCode == "ArrowLeft"){
+					}if (event.keyCode == "ArrowLeft"){
 						player.setImage("Images/l_idle.png");
 						l_track = 0;
 
-					} //end if statement
+					}
 
-				}); //end EventListener function
+				}); //end keyUp functions
 
 			
 				var background = new sjs.Image("Images/background.png");
