@@ -16,26 +16,66 @@
 				var toggle = true;
 				var musicOn = false;
 
-				sjs.keyDown(M_KEY, function(){
-					if(toggle == true){
-						if(musicOn == false){
-							playM.play();
-							musicOn = true;
-							toggle = false;
+				document.addEventListener("keydown", function(){
+					if (event.key == "m") {
+						if(toggle == true){
+							if(musicOn == false){
+								playM.play();
+								musicOn = true;
+								toggle = false;
 
-						} else {
-							playM.pause();
-							musicOn = false;
-							toggle = false;
+							} else {
+								playM.pause();
+								musicOn = false;
+								toggle = false;
+
+							}
+							setTimeout(function(){
+								toggle = true;
+
+							},2000); 
 
 						}
-						setTimeout(function(){
-							toggle = true;
+					}if (event.key == "ArrowRight") {
+						r_faceing = true;
+						r_track = r_track + 1;
+						player.pushRight(2);
+						player.setImage(r_images[r_track]);
+						if(r_track == 7){
+							r_track = 0;
 
-						},2000); 
+						}
 
-					}//end if toggle statement
+						if(r_track >= 8){
+							player.setImage("Images/r_jump.png");
+						}
+					}if (event.key == "ArrowLeft") {
+						r_faceing = false;
+						l_track = l_track + 1;
+						player.pushLeft(2);
+						player.setImage(l_images[l_track]);
+						if(l_track == 7){
+							l_track = 0;
+						}
 
+						if(l_track >= 8){
+							player.setImage("Images/l_jump.png");
+						}
+					}if (event.key == "ArrowUp") {
+						if(canJump == true){
+							canJump = false
+							player.pushUp(55);
+							if(r_faceing == true){
+								player.setImage("Images/r_jump.png");
+								r_track = 8;
+
+							} else {
+								player.setImage("Images/l_jump.png");
+								l_track = 8;
+
+							} 
+						}
+					}
 				});//end keyDown functions
 
 			
@@ -86,57 +126,9 @@
 				var r_track = 0;
 				var l_track = 0;
 
-				sjs.keyDown(RIGHT_KEY, function(){
-					r_faceing = true;
-					r_track = r_track + 1;
-					player.pushRight(2);
-					player.setImage(r_images[r_track]);
-					if(r_track == 7){
-						r_track = 0;
-
-					}
-
-					if(r_track >= 8){
-						player.setImage("Images/r_jump.png");
-					}
-
-				}); //end Right key
-
-				sjs.keyDown(LEFT_KEY, function(){
-					r_faceing = false;
-					l_track = l_track + 1;
-					player.pushLeft(2);
-					player.setImage(l_images[l_track]);
-					if(l_track == 7){
-						l_track = 0;
-					}
-
-					if(l_track >= 8){
-						player.setImage("Images/l_jump.png");
-
-					}
-
-				}); //end Left key
-
 				//jumping code
 
 				var canJump = true;
-
-				sjs.keyDown(UP_KEY, function(){
-					if(canJump == true){
-						canJump = false
-						player.pushUp(55);
-						if(r_faceing == true){
-							player.setImage("Images/r_jump.png");
-							r_track = 8;
-
-						} else {
-							player.setImage("Images/l_jump.png");
-							l_track = 8;
-
-						} 
-					} //end if statement
-				}); //end key down
 
 				window.addEventListener("keyup", function(e){
 					if(e.keyCode == RIGHT_KEY){
