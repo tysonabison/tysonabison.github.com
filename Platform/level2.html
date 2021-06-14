@@ -27,44 +27,34 @@
 				var r_track = 0;
 				var l_track = 0;
 
-				window.addEventListener("keyup", function(e){
-					if(e.keyCode == RIGHT_KEY){
-						player.setImage("Images/r_idle.png");
-						r_track = 0;
 
-					} else if (e.keyCode == LEFT_KEY){
-						player.setImage("Images/l_idle.png");
-						l_track = 0;
+				window.addEventListener("keydown", event => {
+					if (event.key == "ArrowDown") {
+						if(canShoot == true){
+							canShoot = false;
+							var laser = new sjs.Image("Images/laser.png");
+							laser.type = "laser";
+							laser.setSize(100,50);
+							laser.friction= 0;
+							laser.noBounds= true;
+							if(r_faceing == true){
+							laser.moveTo(player.getX()+44,player.getY()+7);
+							laser.pushRight(45.5);
 
-					} //end if statement
+						} else {
+							laser.moveTo(player.getX()+-60,player.getY()+7);
+							laser.pushLeft(45.5);
 
-				}); //end EventListener function
+							}
 
-				sjs.keyDown(DOWN_KEY, function(){
-					if(canShoot == true){
-						canShoot = false;
-						var laser = new sjs.Image("Images/laser.png");
-						laser.type = "laser";
-						laser.setSize(100,50);
-						laser.friction= 0;
-						laser.noBounds= true;
-						if(r_faceing == true){
-						laser.moveTo(player.getX()+44,player.getY()+7);
-						laser.pushRight(45.5);
-
-					} else {
-						laser.moveTo(player.getX()+-60,player.getY()+7);
-						laser.pushLeft(45.5);
+						setTimeout(function(){
+						canShoot = true;
+						},1000);
 
 						}
+					}
 
-					setTimeout(function(){
-					canShoot = true;
-					},1000);
-
-					} //end canShoot if statement
-
-					});//end keyDown function DOWN_KEY
+				});//end keyDown functions
 
 				var wall = new sjs.Image("Images/wall.png");
 				wall.moveTo(2348, 1);
@@ -230,7 +220,7 @@
 
 
 
-		} //end start
+		}
 
 
 		</script>
