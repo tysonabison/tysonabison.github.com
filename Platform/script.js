@@ -1,6 +1,6 @@
 <script src="https://simplycodingcourses.com/files/simply.js"></script>
 <script>
-			function start(){
+	function start(){
 				sjs.open("target",800,500);
 
 				var playM = new Audio('Music/ova.mp3');
@@ -83,4 +83,5 @@
 			
 				var background = new sjs.Image("Images/background.png");
 				background.setSize(2500, 500);
+	} //end start
 </script>
