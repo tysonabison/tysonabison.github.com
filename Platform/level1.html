@@ -2,46 +2,10 @@
 	<head>
 		<title> Platform Game </title>
 		<script src="https://simplycodingcourses.com/files/simply.js"></script>
+		<script src="script.js"></script>
 		<script>
-
-		
-
 			function start(){
-				sjs.open("target",800,500);
-
-				//background music
-
-
-				var playM = new Audio('Music/ova.mp3');
-				var toggle = true;
-				var musicOn = false;
-
-				sjs.keyDown(M_KEY, function(){
-					if(toggle == true){
-						if(musicOn == false){
-							playM.play();
-							musicOn = true;
-							toggle = false;
-
-						} else {
-							playM.pause();
-							musicOn = false;
-							toggle = false;
-
-						}
-						setTimeout(function(){
-							toggle = true;
-
-						},2000); 
-
-					}//end if toggle statement
-
-				});//end keyDown functions
-
-			
-				var background = new sjs.Image("Images/background.png");
-				background.setSize(2500, 500);
-
+				start2();
 				var platform2 = new sjs.Image("Images/platform.png");
 				platform2.setHeight(30);
 				platform2.moveTo(684.7281923333285, 200);
@@ -56,10 +20,6 @@
 				platform3.setHeight(30);
 				platform3.moveTo(2360,115);
 				platform3.type = "platform3";
-
-
-
-		
 
 				sjs.loadImageArray('[{"width":136,"height":30,"x":143,"y":375,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":372,"y":285,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":554,"y":185,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":697.0584158376429,"y":178,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1950.5858467172202,"y":275,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":2137.58584671722,"y":225,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":2287.58584671722,"y":119,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":834.1018572257346,"y":200,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1015.1018572257346,"y":306,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"}]');
 
@@ -85,72 +45,6 @@
 				var r_faceing = true;
 				var r_track = 0;
 				var l_track = 0;
-
-				sjs.keyDown(RIGHT_KEY, function(){
-					r_faceing = true;
-					r_track = r_track + 1;
-					player.pushRight(2);
-					player.setImage(r_images[r_track]);
-					if(r_track == 7){
-						r_track = 0;
-
-					}
-
-					if(r_track >= 8){
-						player.setImage("Images/r_jump.png");
-					}
-
-				}); //end Right key
-
-				sjs.keyDown(LEFT_KEY, function(){
-					r_faceing = false;
-					l_track = l_track + 1;
-					player.pushLeft(2);
-					player.setImage(l_images[l_track]);
-					if(l_track == 7){
-						l_track = 0;
-					}
-
-					if(l_track >= 8){
-						player.setImage("Images/l_jump.png");
-
-					}
-
-				}); //end Left key
-
-				//jumping code
-
-				var canJump = true;
-
-				sjs.keyDown(UP_KEY, function(){
-					if(canJump == true){
-						canJump = false
-						player.pushUp(55);
-						if(r_faceing == true){
-							player.setImage("Images/r_jump.png");
-							r_track = 8;
-
-						} else {
-							player.setImage("Images/l_jump.png");
-							l_track = 8;
-
-						} 
-					} //end if statement
-				}); //end key down
-
-				window.addEventListener("keyup", function(e){
-					if(e.keyCode == RIGHT_KEY){
-						player.setImage("Images/r_idle.png");
-						r_track = 0;
-
-					} else if (e.keyCode == LEFT_KEY){
-						player.setImage("Images/l_idle.png");
-						l_track = 0;
-
-					} //end if statement
-
-				}); //end EventListener function
-
 				//onHit Code Below!!!
 
 				sjs.onHit("player","platform", function(x,y){
@@ -163,8 +57,6 @@
 					}
 
 				});
-
-
 
 				sjs.onHit("player","platform3", function(x,y){
 					window.location = "Win_1.html";
@@ -188,24 +80,17 @@
 
 				});
 
-				sjs.onHit("player","top_screen", function(x,y){
-					x.bounceOff();
-
-				});
-
 				var music_txt = new sjs.Text("Press the m key for some music!", 21, "white");
-			music_txt.moveTo(250, 0);
+				music_txt.moveTo(250, 0);
 
-		
-			setTimeout(function(){
+				setTimeout(function(){
 			
-			music_txt.destroy();
+				music_txt.destroy();
 			
-			},2000);
+				},2000);
 
 
-		} //end start
-
+			} //end start
 
 		</script>
 	</head>
