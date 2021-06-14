@@ -1,6 +1,6 @@
 <script src="https://simplycodingcourses.com/files/simply.js"></script>
 <script>
-	function start(){
+	function start2(){
 				sjs.open("target",800,500);
 
 				var playM = new Audio('Music/ova.mp3');
