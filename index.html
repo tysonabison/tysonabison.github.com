@@ -7,16 +7,19 @@
 	function start(){
 	sjs.open();
 	var menu_text = new sjs. Text("I have moved to a new platform, click this button to go to new website.", 28, "blue");
-	menu_text.centerH();
+	menu_text.bottomH();
 
 	//var game_text = new sjs.Text("My Projects", 28, "red");
-	//game_text.centerH().offset(0, 30);
+	//game_text.H().offset(0, 30);
 
 	
 	var startBtn = new sjs.Button("New website", function(){
-window.location = "https://craft1c.net";
+window.open = "https://craft1c.net";
 });
 	startBtn.center();
+		
+		var craft_text = new sjs. Text("Website is craft1c.net, look it up.", 28, "blue");
+	craft_text.centerH();
 		
 	//var FishBtn = new sjs.Button("Fish Game", function(){
 //window.location = "Fish/index.html";
